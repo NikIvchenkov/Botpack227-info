@@ -25,13 +25,13 @@ nav a {
   color: lime;
   background-color: #202020;
   text-decoration: none;
-  padding: 4rem 10px;
+  padding: 4px 10px;
   border-radius: 6px;
 }
 
 nav a:hover {
   background-color: #101010;
-  text-shadow: 0 0 10rem aqua;
+  text-shadow: 0 0 10px aqua;
 }
 
 .nav-selected {
@@ -41,7 +41,7 @@ nav a:hover {
   color: #ffffff;
   background-color: #204060;
   text-decoration: none;
-  padding: 4rem 10px;
+  padding: 4px 10px;
   border-radius: 6px;
 }
 
