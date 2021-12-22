@@ -1,0 +1,97 @@
+/* Page style & layout */
+
+body {
+  background-color: teal;
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+  gap: 0;
+}
+
+/* Navigation */
+
+.explorer {
+  position: sticky;
+  box-sizing: border-box;
+  top: 0;
+  height: 100vh;
+  background-color: #006060;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nav-column {
+  box-sizing: border-box;
+  flex: 0 225px;
+}
+
+.nav-form {
+  position: sticky;
+  top: 0;
+  padding: 10px;
+}
+
+form {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-form input[type="search"] {
+  box-sizing: border-box;
+  width: 174px;
+}
+
+.nav-form button {
+  padding: 0 3px 0 4px;
+  box-sizing: border-box;
+  width: 24px;
+}
+
+nav {
+  //position: sticky;
+  //top: 0;
+  //bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid;
+  margin: 0;
+  background-color: #406060;
+}
+
+.nav-container {
+}
+
+.nav-container > div {
+  margin: 10px 0;
+}
+
+.nav-item {
+  display: block;
+  background-color: #202020;
+  color: lime;
+  font-size: 20px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.nav-selected {
+  background-color: #204060;
+  color: white;
+}
+
+a.nav-item:hover {
+  text-shadow: 0 0 10px aqua;
+}
+
+/* Article */
+
+article {
+  flex: 3;
+  padding: 10px;
+}

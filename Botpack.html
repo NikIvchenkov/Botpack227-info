@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Botpack.css">
+  <title>Document</title>
+</head>
+<body class="main-container">
+  <!--<div class="main-container">-->
+    <!--<div class="nav-column"></div>-->
+    <div class="explorer">
+      <form class="nav-form">
+        <input type="search" name="searchEdit" placeholder="Search query">
+        <button type="button">&#x1F50D;&#xFE0E;</button>
+      </form>
+      <nav class="nav-container">
+        <!--<div class="nav-container">-->
+          <div><div class="nav-item nav-selected">Overview</div></div>
+          <div><a class="nav-item" href="">Installation</a></div>
+          <div><a class="nav-item" href="">Mapping &amp; Scripting</a></div>
+          <div><a class="nav-item" href="">Contact</a></div>
+        <!--</div>-->
+      </nav>
+    </div>
+    <article>
+      Article text<br>
+      Line2<br>
+      Line3
+      <pre>
+        class B227_UTSmokeTrailEmitter expands XEmitter
+        transient;
+      
+      #exec OBJ LOAD FILE="BotpackResources.u" PACKAGE=Botpack
+      
+      var float StartTimestamp;
+      var float OffsetDistance;
+      
+      var private float NextOpacityUpdateTimestamp;
+      
+      event Tick(float DeltaTime)
+      {
+        if (Owner == none)
+          return;
+        if (bDisabled && Level.TimeSeconds >= StartTimestamp)
+          bDisabled = false;
+      
+        UpdatePosition();
+        UpdateOpacity();
+      }
+      
+      event FellOutOfWorld();
+      
+      function UpdatePosition()
+      {
+        SetLocation(Owner.Location - vector(Owner.Rotation) * OffsetDistance);
+        SetRotation(Owner.Rotation);
+      }
+      
+      function UpdateOpacity()
+      {
+        const MaxGroupingDist = 128;
+        const MaxGroupingActors = 16;
+        local B227_UTSmokeTrailEmitter OtherSmokeEmitter;
+        local float Grouping;
+        local int i;
+      
+        if (Level.TimeSeconds < NextOpacityUpdateTimestamp)
+          return;
+      
+        foreach RadiusActors(class'B227_UTSmokeTrailEmitter', OtherSmokeEmitter, MaxGroupingDist)
+          if (OtherSmokeEmitter.Owner != none && OtherSmokeEmitter != self && i++ < MaxGroupingActors)
+            Grouping +=
+              FMax(0, vector(Rotation) Dot vector(OtherSmokeEmitter.Rotation)) *
+              (1 - VSize(Location - OtherSmokeEmitter.Location) / MaxGroupingDist);
+        FadeInMaxAmount = default.FadeInMaxAmount * (1 + Grouping / 2) / (1 + Grouping);
+      
+        NextOpacityUpdateTimestamp = Level.TimeSeconds + 0.1 * Level.TimeDilation;
+      }
+      
+      function SetEmitterDelay(float Time)
+      {
+        bDisabled = true;
+        StartTimestamp = Level.TimeSeconds + Time;
+      }
+      
+      function StopEmitting()
+      {
+        SetOwner(none);
+        Kill();
+      }
+      
+      defaultproperties
+      {
+        bStasis=False
+        bForceStasis=False
+        MaxParticles=100
+        FadeInTime=0.0
+        FadeOutTime=0.0
+        FadeInMaxAmount=0.5
+        StartingScale=(Min=1.8,Max=1.8)
+        ParticleTextures(0)=Texture'Botpack.utsmoke.us8_a00'
+        ParticleTextures(1)=Texture'Botpack.utsmoke.US3_A00'
+        ParticleTextures(2)=Texture'Botpack.utsmoke.us2_a00'
+        ParticleTextures(3)=Texture'Botpack.utsmoke.us1_a00'
+        LifetimeRange=(Min=2.0,Max=2.0)
+        BoxVelocity=(Z=(Min=50.0,Max=50.0))
+        SpriteAnimationType=SAN_PlayOnce
+        bUseRandomTex=True
+        Physics=PHYS_None
+        Style=STY_Translucent
+      }
+      
+      </pre>
+    </article>
+  <!--</div>-->
+</body>
+</html>
