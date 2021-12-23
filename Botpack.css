@@ -101,3 +101,34 @@ article {
   padding: 10px;
   color: silver;
 }
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 2px solid cadetblue;
+}
+
+th {
+  padding: 4px;
+  border: 2px solid cadetblue;
+}
+
+td {
+  padding: 4px;
+  border: 2px solid cadetblue;
+}
+
+.feature-supported {
+  text-align: center;
+  color: lime;
+}
+
+.feature-partially-supported {
+  text-align: center;
+  color: yellow;
+}
+
+.feature-unsupported {
+  text-align: center;
+  color: red;
+}
