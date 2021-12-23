@@ -1,7 +1,7 @@
 /* Page style & layout */
 
 body {
-  background-color: teal;
+  background-color: rgb(33, 39, 51);
   margin: 0;
 }
 
@@ -88,9 +88,16 @@ a.nav-item:hover {
   text-shadow: 0 0 10px aqua;
 }
 
+a.nav-item:active {
+  background-color: #A05020;
+  text-shadow: none;
+  box-shadow: 4px 4px 4px #20202080;
+}
+
 /* Article */
 
 article {
   flex: 3;
   padding: 10px;
+  color: silver;
 }
