@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Botpack227-info_files/Botpack.css">
+  <script defer src="Botpack227-info_files/Botpack.js"></script>
+  <title>Botpack227</title>
+</head>
+
+<body class="main-container">
+
+  <div class="nav-bar">
+    <div></div> <!-- TODO: add language selection -->
+    <nav class="nav-container">
+      <div><a href="#ref-overview">Overview</a></div>
+      <div><a href="#ref-installation">Installation</a></div>
+      <div><a href="#ref-configuration">Configuration</a></div>
+      <div><a href="#ref-mapping-and-scripting">Mapping &amp; scripting</a></div>
+      <div><a href="#ref-gallery">Gallery</a></div>
+    </nav>
+  </div>
+
+  <div class="page-container">
+    <div class="article-container">
+      <article>
+
+        <h1>Botpack227</h1>
+
+        <!-- [Overview] -->
+
+        <h2 class="nav-target" id="ref-overview">Overview</h2>
+
+        <h3>Introduction</h3>
+
+        <p>Botpack227 is a bundle of game packages that allows playing a limited subset of Unreal Tournament maps on Unreal 227 and resolves varios issues with the maps and the packages they use.</p>
+
+        <h3>Supported mapsets</h3>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Mapset</th>
+                <th>Created by</th>
+                <th>Single-player</th>
+                <th>Coop</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Déjà Vu - Gryphon Revisited</td>
+                <td>Team UnrealSP</td>
+                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-supported">&#x2713;</td>
+              </tr>
+              <tr>
+                <td>Nali Chronicles</td>
+                <td>NCTeam</td>
+                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-unsupported">&#x2717;</td>
+              </tr>
+              <tr>
+                <td>Operation Na Pali</td>
+                <td>Team Vortex</td>
+                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-supported">&#x2713;</td>
+              </tr>
+              <tr>
+                <td>
+                  Project Xenome <i>(2009)</i>
+                </td>
+                <td rowspan=3>Jarrod “Jazzyb” Burgess</td>
+                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-supported">&#x2713;</td>
+              </tr>
+              <tr>
+                <td>
+                  Project Xenome: First Day
+                </td>
+                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-supported">&#x2713;</td>
+              </tr>
+              <tr>
+                <td>
+                  Project Xenome: Interloper
+                </td>
+                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-supported">&#x2713;</td>
+              </tr>
+              <tr>
+                <td>Project Zephon: Battle for Freedom</td>
+                <td>Team Zephon</td>
+                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-supported">&#x2713;</td>
+              </tr>
+              <tr>
+                <td>Return the Heart</td>
+                <td>Rob “Doublez-Down” Collins</td>
+                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-supported">&#x2713;</td>
+              </tr>
+              <tr>
+                <td>Seven Bullets</td>
+                <td>Team Red Nemesis</td>
+                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-supported">&#x2713;</td>
+              </tr>
+              <tr>
+                <td>The Odyssey</td>
+                <td>Sarevok</td>
+                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-supported">&#x2713;</td>
+              </tr>
+              <tr>
+                <td>Unreality Episode One</td>
+                <td>Dmitry “Tygra” Gribanoff</td>
+                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-supported">&#x2713;</td>
+              </tr>
+              <tr>
+                <td>Xidia Gold</td>
+                <td>Team Phalanx</td>
+                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-supported">&#x2713;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- end of [Overview] -->
+
+        <!-- [Installation] -->
+
+        <h2 class="nav-target" id="ref-installation">Installation</h2>
+
+        <p>The recommended way to make UT maps playable on Unreal 227 is to specify paths to related files in 227's <span class="entity">Unreal.ini</span>.</p>
+
+        <p>Let's suppose that</p>
+
+        <ul>
+          <li>the base game directory of Unreal 227 is <span class="entity">U227_GAME_DIR</span> (e.g., <span class="entity">D:\Games\Unreal227</span>);</li>
+          <li>the base directory of Unreal Tournament is <span class="entity">UT_GAME_DIR</span> (e.g., <span class="entity">D:\Games\UnrealTournament</span>);</li>
+          <li>UT map sets are installed in directory <span class="entity">UT_MODS_DIR</span> (e.g., <span class="entity">D:\Games\UnrealTournament\Mods</span>);</li>
+          <li>directory <span class="entity">B227_MODS_DIR</span> (e.g., <span class="entity">D:\Games\Unreal227\UT_Mods</span>) is the place where you're going to install the converted UT files to.</li>
+        </ul>
+        These directories are supposed to contain subdirectories <span class="entity">Maps</span>, <span class="entity">Music</span>, <span class="entity">Sounds</span>, <span class="entity">System</span>, <span class="entity">Textures</span>) inside.
+
+        <p>Then you can specify the following paths in section <span class="entity">[Core.System]</span> of <span class="entity">U227_GAME_DIR\System\Unreal.ini</span> (<span class="entity">D:\Games\Unreal227\System\Unreal.ini</span>):</p>
+
+        <div class="ini-code-container">
+          <div class="ini-code">
+            Paths=<span class="entity">B227_MODS_DIR</span>\Maps\*.unr<br>
+            Paths=<span class="entity">B227_MODS_DIR</span>\Music\*.umx<br>
+            Paths=<span class="entity">B227_MODS_DIR</span>\Sounds\*.uax<br>
+            Paths=<span class="entity">B227_MODS_DIR</span>\System\*.u<br>
+            Paths=<span class="entity">B227_MODS_DIR</span>\Textures\*.utx<br>
+            Paths=<span class="entity">UT_GAME_DIR</span>\Maps\*.unr<br>
+            Paths=<span class="entity">UT_GAME_DIR</span>\Music\*.umx<br>
+            Paths=<span class="entity">UT_GAME_DIR</span>\Sounds\*.uax<br>
+            Paths=<span class="entity">UT_GAME_DIR</span>\System\*.u<br>
+            Paths=<span class="entity">UT_GAME_DIR</span>\Textures\*.utx<br>
+            Paths=<span class="entity">UT_MODS_DIR</span>\Maps\*.unr<br>
+            Paths=<span class="entity">UT_MODS_DIR</span>\Music\*.umx<br>
+            Paths=<span class="entity">UT_MODS_DIR</span>\Sounds\*.uax<br>
+            Paths=<span class="entity">UT_MODS_DIR</span>\System\*.u<br>
+            Paths=<span class="entity">UT_MODS_DIR</span>\Textures\*.utx<br>
+          </div>
+        </div>
+
+        <p>where placeholders <span class="entity">B227_MODS_DIR</span>, <span class="entity">UT_GAME_DIR</span>, and <span class="entity">UT_MODS_DIR</span> should be replaced with actual directory paths like these:</p>
+
+        <div class="ini-code-container">
+          <div class="ini-code">
+            Paths=D:\Games\Unreal227\UT_Mods\Maps\*.unr<br>
+            Paths=D:\Games\Unreal227\UT_Mods\Music\*.umx<br>
+            Paths=D:\Games\Unreal227\UT_Mods\Sounds\*.uax<br>
+            Paths=D:\Games\Unreal227\UT_Mods\System\*.u<br>
+            Paths=D:\Games\Unreal227\UT_Mods\Textures\*.utx<br>
+            Paths=D:\Games\UnrealTournament\Maps\*.unr<br>
+            Paths=D:\Games\UnrealTournament\Music\*.umx<br>
+            Paths=D:\Games\UnrealTournament\Sounds\*.uax<br>
+            Paths=D:\Games\UnrealTournament\System\*.u<br>
+            Paths=D:\Games\UnrealTournament\Textures\*.utx<br>
+            Paths=D:\Games\UnrealTournament\Mods\Maps\*.unr<br>
+            Paths=D:\Games\UnrealTournament\Mods\Music\*.umx<br>
+            Paths=D:\Games\UnrealTournament\Mods\Sounds\*.uax<br>
+            Paths=D:\Games\UnrealTournament\Mods\System\*.u<br>
+            Paths=D:\Games\UnrealTournament\Mods\Textures\*.utx<br>
+          </div>
+        </div>
+
+        <h3>Installing all supported campaigns and single maps at once</h3>
+
+        <p>Installation of all the converted files can be done by taking the following steps:</p>
+        <ul class="outer-list">
+          <li>copy the contents of its subdirectories
+            <ul>
+              <li><span class="entity">Botpack</span></li>
+              <li><span class="entity">Misc</span></li>
+              <li><span class="entity">oldskool</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR</span> (e.g., <span class="entity">D:\Games\Unreal227\UT_Mods</span> - see above).
+          </li>
+          <li>Locate directory <span class="entity">Files for campaigns</span> and copy the contents of its subdirectories
+            <ul>
+              <li><span class="entity">Deja Vu</span></li>
+              <li><span class="entity">Nali Chronicles</span></li>
+              <li><span class="entity">Operation Na Pali</span></li>
+              <li><span class="entity">Project Xenome</span></li>
+              <li><span class="entity">Project Zephon</span></li>
+              <li><span class="entity">Seven Bullets</span></li>
+              <li><span class="entity">Unreality Episode One</span></li>
+              <li><span class="entity">Xidia Gold</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR</span> (e.g., <span class="entity">D:\Games\Unreal227\UT_Mods</span> - see above).
+          </li>
+          <li>Locate directory <span class="entity">Files for single maps</span> and copy the contents of its subdirectory
+            <ul>
+              <li><span class="entity">Enslaved</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR</span> (e.g., <span class="entity">D:\Games\Unreal227\UT_Mods</span> - see above).
+          </li>
+          <li>If you want to see the mapsets in the list of single-player campaigns in the game menu, then copy all files from directory <span class="entity">SP menu support\System</span> to <span class="entity">U227_GAME_DIR\System</span> (e.g., <span class="entity">D:\Games\Unreal227\System</span> - see above).</li>
+        </ul>
+
+        <p>It is also recommended to install and use mutator <span class="entity">B227_MapFix</span> when playing UT maps on Unreal 227i. <span class="entity">B227_MapFix.ini</span> should be placed in <span class="entity">U227_GAME_DIR\System</span></p>
+
+        <p>In case if you want to install only a particular UT campaign, then follow the steps described below.</p>
+
+        <h3>Déjà Vu - Gryphon Revisited</h3>
+
+        <ul class="outer-list">
+          <li>Copy the contents of directories
+            <ul>
+              <li><span class="entity">Botpack</span></li>
+              <li><span class="entity">oldskool</span></li>
+              <li><span class="entity">Files for campaigns\Deja Vu</span></li>
+              </ul>
+            to <span class="entity">B227_MODS_DIR</span>.
+          </li>
+        </ul>
+
+        <h3>Nali Chronicles</h3>
+
+        <ul class="outer-list">
+          <li>Copy the contents of directories
+            <ul>
+              <li><span class="entity">Botpack</span></li>
+              <li><span class="entity">Files for campaigns\Nali Chronicles</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR</span>.
+          </li>
+        </ul>
+
+        <h3>Operation Na Pali</h3>
+
+        <ul class="outer-list">
+          <li>Copy the contents of directories
+            <ul>
+              <li><span class="entity">Botpack</span></li>
+              <li><span class="entity">Misc</span></li>
+              <li><span class="entity">oldskool</span></li>
+              <li><span class="entity">Files for campaigns\Operation Na Pali</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR</span>.
+          </li>
+        </ul>
+
+        <h3>Project Xenome</h3>
+
+        <ul class="outer-list">
+          <li>Copy the contents of directories
+            <ul>
+              <li><span class="entity">Botpack</span></li>
+              <li><span class="entity">Misc</span></li>
+              <li><span class="entity">oldskool</span></li>
+              <li><span class="entity">Files for campaigns\Project Xenome</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR</span>.</li>
+          <li>Locate directory <span class="entity">Files for campaigns</span> and copy files
+            <ul>
+              <li><span class="entity">Operation Na Pali\System\olextras.u</span></li>
+              <li><span class="entity">Project Zephon\System\zpscripts.u</span></li>
+              <li><span class="entity">Xidia Gold\System\XidiaMPack.u</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR\System</span>.
+          </li>
+        </ul>
+
+        <h3>Project Zephon: Battle for Freedom</h3>
+
+        <ul class="outer-list">
+          <li>Copy the contents of directories
+            <ul>
+              <li><span class="entity">Botpack</span></li>
+              <li><span class="entity">oldskool</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR</span>.
+          </li>
+          <li>Copy file <span class="entity">Files for campaigns\Project Zephon\System\zpscripts.u</span> to <span class="entity">B227_MODS_DIR\System</span>.</li>
+        </ul>
+
+        <h3>Return the Heart</h3>
+
+        <ul class="outer-list">
+          <li>copy the contents of directories
+            <ul>
+              <li><span class="entity">Botpack</span></li>
+              <li><span class="entity">oldskool</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR</span>.
+          </li>
+        </ul>
+
+        <h3>Seven Bullets</h3>
+
+        <ul class="outer-list">
+          <li>Copy the contents of directories
+            <ul>
+              <li><span class="entity">Botpack</span></li>
+              <li><span class="entity">Misc</span></li>
+              <li><span class="entity">oldskool</span></li>
+              <li><span class="entity">Files for campaigns\Seven Bullets</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR</span>.
+          </li>
+        </ul>
+
+        <h3>The Odyssey</h3>
+
+        <ul class="outer-list">
+          <li>Copy the contents of directories
+            <ul>
+              <li><span class="entity">Botpack</span></li>
+              <li><span class="entity">oldskool</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR</span>.
+          </li>
+        </ul>
+
+        <h3>Unreality Episode One</h3>
+
+        <ul class="outer-list">
+          <li>Copy the contents of directories
+            <ul>
+              <li><span class="entity">Botpack</span></li>
+              <li><span class="entity">oldskool</span></li>
+              <li><span class="entity">Files for campaigns\Unreality Episode One</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR</span>.
+          </li>
+          <li>Copy file <span class="entity">Files for campaigns\Xidia Gold\System\XidiaMPack.u</span> to <span class="entity">B227_MODS_DIR\System</span></li>
+        </ul>
+
+        <h3>Xidia Gold</h3>
+
+        <ul class="outer-list">
+          <li>Copy the contents of directories
+            <ul>
+              <li><span class="entity">Botpack</span></li>
+              <li><span class="entity">Misc</span></li>
+              <li><span class="entity">oldskool</span></li>
+              <li><span class="entity">Files for campaigns\Xidia Gold</span></li>
+            </ul>
+            to <span class="entity">B227_MODS_DIR</span>.
+          </li>
+        </ul>
+
+        <!-- end of [Installation] -->
+
+        <!-- [Configuration] -->
+
+        <h2 class="nav-target" id="ref-configuration">Configuration</h2>
+
+        <h3>Speech menu</h3>
+
+        <p>The speech menu can be bound to a &lt;Key&gt; by means of console command</p>
+        <div class="ini-code-container">
+          <div class="ini-code">
+            set input &lt;Key&gt; ShowSpeech
+          </div>
+        </div>
+
+        <p>For example:</p>
+        <div class="ini-code-container">
+          <div class="ini-code">
+            set input V ShowSpeech
+          </div>
+        </div>
+
+        <h3>Extensions and fixes</h3>
+
+        <p></p>
+
+        <p>B227_Config:</p>
+        <dl>
+          <dt>bEnableExtensions <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- this option can be used to disable most of the modifications described below.</dd>
+          <dt>bFixLoaded <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- if true, the <span class="entity">Loaded</span> cheat command gives Armor2 and ThighPads to the player as if the player would touch spawned armors; if false, the existing armors in the player's inventory list are ignored when executing this command, so the player takes +150 armor units on every use of <span class="entity">Loaded</span>.</dd>
+          <dt>bModifyProjectilesLighting <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- this option can be used to disable modifications on projectile's lighting.</dd>
+        </dl>
+
+        <p>B227_UTSmokeTrailEmitter:</p>
+        <dl>
+          <dt>bAutoReduceSmokeOpacity <span class="value-type">(bool)</span> <span class="default-value">default: false</span></dt>
+          <dd>- if true, opacity of rocket trail's smoke particles (created by B227_UTSmokeTrailEmitter) is reduced when the smoke emitter has other smoke emitters nearby.</dd>
+        </dl>
+
+        <p>PulseGun:</p>
+        <dl>
+          <dt>B227_bAdjustNPCAccuracy <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- modifies aim accuracy for low-skilled Unreal bots and ScriptedPawns when they use secondary fire of PulseGun.</dd>
+          <dt>B227_bGuideBeam <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- modifies the method of positioning the PulseGun beam.</dd>
+          <dt>B227_bHardcoreDamage <span class="value-type">(bool)</span> <span class="default-value">default: false</span></dt>
+          <dd>- multiplies damage of PulseGun projectiles by 1.5 in non-deathmatch games.</dd>
+          <dt>B227_bLimitWallEffect <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- modifies the end of PulseGun beam when it hits actors.</dd>
+          <dt>B227_bModifyPlasmaLighting <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- modifies the lighting of PulseGun projectiles.</dd>
+        </dl>
+
+        <p>ShockBeam:</p>
+        <dl>
+          <dt>B227_bModifyLighting <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- adds lighting to ShockRifle beam.</dd>
+        </dl>
+
+        <p>TournamentWeapon:</p>
+        <dl>
+          <dt>B227_bAdjustNPCFirePosition <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- modifies the location from where firing takes place when a TournamentWeapon is used by an NPC.</dd>
+          <dt>B227_bTraceFireThroughWarpZones <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- if true, hitscan weapons perform advanced tracing through WarpZoneInfo portals.</dd>
+          <dt>B227_bUseEnergyAmplifier <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- if true, damage caused by energy weapons (ShockRifle, PulseGun) is multiplied by Amplifier. SuperShockRifle can't use Amplifier.</dd>
+        </dl>
+
+        <p>UTSmokeTrail:</p>
+        <dl>
+          <dt>B227_bReplaceWithEmitter <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- replaces UTSmokeTrail with particles generated by an emitter for RocketMk2 projectiles.</dd>
+          <dt>B227_bReplaceWithSmokePuffs <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- if true, UTSmokeTrail's mesh becomes hidden and its visual appearance is recreated by spawning UT_SpriteSmokePuff actors.</dd>
+        </dl>
+
+        <h2 class="nav-target" id="ref-mapping-and-scripting">Mapping &amp; scripting</h2>
+
+        <p>Authors of custom maps and mods should avoid using any extensions from converted UT packages, unless those maps and mods are not planned to be compatible with Unreal Tournament or its other possible conversions to Unreal 227. Botpack227 extensions include classes, functions, textures, and variables whose name starts with <span class="entity">B227_</span>, <span class="entity">UTC_</span>, <span class="entity">UTF_</span>, or <span class="entity">UTSF_</span>, and all objects defined in package Botpack227_Base.u.</p>
+
+        <p>Objects whose name starts with the <span class="entity">B227_</span> prefix may be removed in future versions of converted packages, hence it is unsafe to use them in packages without consulting with the author of the Botpack227 project.</p>
+
+        <p>Default properties of converted classes may differ from their original values in UT. This may cause compatibility issues for maps and mods that rely on such default properties.</p>
+
+        <p>Also implementing cross-platform subclasses of any classes defined in Botpack.u may be difficult, because functions in Botpack227 conversion may behave differently than in UT.</p>
+
+        <p>This conversion does not support client-side (simulated) states in weapons. Custom classes may use such states as long as they don't utilize UT-specific variables and functions that are generally used in UT for managing simulated weapon states.</p>
+
+        <p>Many projectile classes in this conversion use a special synchronization in network game.</p>
+
+        <!-- end of [Configuration] -->
+
+        <!-- [Gallery] -->
+
+        <h2 class="nav-target" id="ref-gallery">Gallery</h2>
+
+        <div id="bottom-content">
+          <p class="bullet">Déjà Vu - Gryphon Revisited</p>
+          <ul class="gallery">
+            <li><img src="Botpack227-info_files/Images/USP-02-Sarevok.jpg" title="E'Nara Town"></li>
+            <li><img src="Botpack227-info_files/Images/USP-03-Naveed-LH.jpg" title="Cellars of E'Nara"></li>
+            <li><img src="Botpack227-info_files/Images/USP-04-Drevlin.jpg" title="Temple of Somana"></li>
+            <li><img src="Botpack227-info_files/Images/USP-06-Jaunie.jpg" title="The Catacombs of Shia'dorle"></li>
+            <li><img src="Botpack227-info_files/Images/USP-10-MMANUGITU.jpg" title="Temple of Novana"></li>
+            <li><img src="Botpack227-info_files/Images/USP-16-MrProphet.jpg" title="Location Z-14"></li>
+          </ul>
+
+          <p class="bullet">Nali Chronicles</p>
+          <ul class="gallery">
+            <li><img src="Botpack227-info_files/Images/NCLevel001.jpg" title="NaRaLuk Village"></li>
+            <li><img src="Botpack227-info_files/Images/NCLevel007.jpg" title="Moonspire Gate"></li>
+            <li><img src="Botpack227-info_files/Images/NCLevel008a.jpg" title="Moonspire"></li>
+            <li><img src="Botpack227-info_files/Images/NCLevel012.jpg" title="The Nali Sandcanyon - Part I"></li>
+            <li><img src="Botpack227-info_files/Images/NCLevel018.jpg" title="The Temple of Zakaran"></li>
+            <li><img src="Botpack227-info_files/Images/NCLevel019.jpg" title="The Sea of Despair"></li>
+          </ul>
+
+
+          <p class="bullet">Operation Na Pali</p>
+          <ul class="gallery">
+            <li><img src="Botpack227-info_files/Images/NP14MClaneDrPest.jpg" title="Map 14:  Thra Fortress"></li>
+            <li><img src="Botpack227-info_files/Images/NP18Chico.jpg" title="Map 18: Nali Mountain Fighters"></li>
+            <li><img src="Botpack227-info_files/Images/NP19part3ChicoHour.jpg" title="NP19 Part 3 : WipeOut"></li>
+            <li><img src="Botpack227-info_files/Images/NP24MClane.jpg" title="Map 24: The old Nali ruins"></li>
+            <li><img src="Botpack227-info_files/Images/NP26DavidM.jpg" title="Map 26: Rostivelt Lake"></li>
+            <li><img src="Botpack227-info_files/Images/NP34Atje.jpg" title="Map34: Na Pali Heaven Part II"></li>
+          </ul>
+
+          <p class="bullet">Project Xenome <i>(2009)</i></p>
+          <ul class="gallery">
+            <li><img src="Botpack227-info_files/Images/ONP-map11Admin.jpg" title="Admin"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map26EBE.jpg" title="Encounter with EBE"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map30Ruins.jpg" title="Ruins"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map31Dogsofwar.jpg" title="Dogs of War"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map36Birthing.jpg" title="Xenome Labs 'Tank Birthing'"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map38Tothecore.jpg" title="Core Entrance"></li>
+          </ul>
+
+          <p class="bullet">Project Xenome: First Day</p>
+          <ul class="gallery">
+            <li><img src="Botpack227-info_files/Images/ONP-map01FirstDayX.jpg" title="First Day"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map02LinesofCommX.jpg" title="Lines of Communication"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map03oppressivemetalX.jpg" title="Oppressive Metal"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map05SourWaterX.jpg" title="Sour Water"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map06ProcessingX.jpg" title="Processing"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map07PlanningX.jpg" title="Subtle Planning"></li>
+          </ul>
+
+          <p class="bullet">Project Xenome: Interloper</p>
+          <ul class="gallery">
+            <li><img src="Botpack227-info_files/Images/ONP-map10AmbushX.jpg" title="Ambush"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map11CobaltX.jpg" title="Cobalt Colony"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map13SignsX.jpg" title="Signs and Portents"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map14SoothsayerX.jpg" title="Soothsayer"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map17SiteBX.jpg" title="Welcome to site B"></li>
+            <li><img src="Botpack227-info_files/Images/ONP-map23PowerPlayX.jpg" title="Power Play"></li>
+          </ul>
+
+          <p class="bullet">Project Zephon: Battle for Freedom</p>
+          <ul class="gallery">
+            <li><img src="Botpack227-info_files/Images/zp01-umssakuracrashsite.jpg" title="UMS-Sakura Crash-site"></li>
+            <li><img src="Botpack227-info_files/Images/zp02-genesisoutpost.jpg" title="Genesis Outpost"></li>
+            <li><img src="Botpack227-info_files/Images/zp03-eldoracaves.jpg" title="The Eldora Caves"></li>
+            <li><img src="Botpack227-info_files/Images/zp07-nurglevillage.jpg" title="The Nurgle Village - Krall Prison"></li>
+            <li><img src="Botpack227-info_files/Images/zp08-thelostmines.jpg" title="Entrance to the Lost Mines "></li>
+            <li><img src="Botpack227-info_files/Images/zp12-extremebattle.jpg" title="The Extreme Battle" data-contrast-title></li>
+          </ul>
+
+          <p class="bullet">Return the Heart</p>
+          <ul class="gallery">
+            <li><img src="Botpack227-info_files/Images/RTH1_DivineAnnex.jpg" title="Divine Annex"></li>
+            <li><img src="Botpack227-info_files/Images/RTH2_Pitchiz.jpg" title="Pit of Chizra"></li>
+            <li><img src="Botpack227-info_files/Images/RTH3_Karkuth.jpg" title="Karkuth Monastery" data-contrast-title></li>
+          </ul>
+
+          <p class="bullet">Seven Bullets</p>
+          <ul class="gallery">
+            <li><img src="Botpack227-info_files/Images/Jones-03-Rogue.jpg" title="The Rogue"></li>
+            <li><img src="Botpack227-info_files/Images/Jones-05-Trench2.jpg" title="Familiar Odds"></li>
+            <li><img src="Botpack227-info_files/Images/Jones-05-TemplePart2.jpg" title="The Lost Passage of Vandora"></li>
+            <li><img src="Botpack227-info_files/Images/Jones-05-TemplePart3.jpg" title="The Guardian of Vandora's Pass"></li>
+            <li><img src="Botpack227-info_files/Images/Jones-08-Pirate.jpg" title="Beneath the Terraniux"></li>
+            <li><img src="Botpack227-info_files/Images/Jones-08-Pirate2.jpg" title="The Dead Scorpions"></li>
+          </ul>
+
+          <p class="bullet">The Odyssey</p>
+          <ul class="gallery">
+            <li><img src="Botpack227-info_files/Images/TheOdyssey-Map01-Storm.jpg" title="Eye of the Storm"></li>
+            <li><img src="Botpack227-info_files/Images/TheOdyssey-Map02-Sacred.jpg" title="Temple of the Sacred"></li>
+            <li><img src="Botpack227-info_files/Images/TheOdyssey-Map03-Retribution.jpg" title="Retribution"></li>
+          </ul>
+
+          <p class="bullet">Unreality Episode One</p>
+          <ul class="gallery">
+            <li><img src="Botpack227-info_files/Images/Unreality-02-Siberia.jpg" title="Entering Siberia"></li>
+            <li><img src="Botpack227-info_files/Images/Unreality-03-TheCave.jpg" title="The Cave"></li>
+            <li><img src="Botpack227-info_files/Images/Unreality-04-Baikal.jpg" title="Baikal"></li>
+            <li><img src="Botpack227-info_files/Images/Unreality-05-WaterB.jpg" title="Mausoleum"></li>
+            <li><img src="Botpack227-info_files/Images/Unreality-07-OutPost.jpg" title="Siberian Outpost"></li>
+            <li><img src="Botpack227-info_files/Images/Unreality-09-Tygron.jpg" title="Station Tygron"></li>
+          </ul>
+
+          <p class="bullet">Xidia Gold</p>
+          <ul class="gallery">
+            <li><img src="Botpack227-info_files/Images/XidiaGold-Map2-Landing.jpg" title="Landing"></li>
+            <li><img src="Botpack227-info_files/Images/XidiaGold-Map3-OutpostPheonix.jpg" title="Outpost Pheonix"></li>
+            <li><img src="Botpack227-info_files/Images/XidiaGold-Map4-Mine.jpg" title="Beneath Xidia"></li>
+            <li><img src="Botpack227-info_files/Images/XidiaES-Map3-ReOP.jpg" title="Return to Outpost Pheonix"></li>
+            <li><img src="Botpack227-info_files/Images/XidiaES-Map4-DeadMines.jpg" title="The Dead Mines"></li>
+            <li><img src="Botpack227-info_files/Images/XidiaES-Map5-GenomeWarriors.jpg" title="The Genome Warriors"></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <footer>
+      Last documentation update: 2022-03-21
+    </footer>
+  </div>
+</body>
+</html>

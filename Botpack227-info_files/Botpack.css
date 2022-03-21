@@ -1,0 +1,301 @@
+/* Page style & layout */
+
+body {
+  background-color: rgb(33, 39, 51);
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+  gap: 0;
+}
+
+/* Navigation */
+
+.nav-bar {
+  position: sticky;
+  box-sizing: border-box;
+  top: 0;
+  height: 100vh;
+  background-color: #003030;
+  display: grid;
+  grid-template-rows: 0 1fr;
+  align-items: center;
+  border-right: 2px solid darkslategray;
+}
+
+.nav-column {
+  box-sizing: border-box;
+  flex: 0 225px;
+}
+
+nav {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid;
+  margin: 0;
+  background-color: #004040;
+}
+
+.nav-container {
+  min-width: 225px;
+}
+
+.nav-container > div {
+  margin: 10px 0;
+}
+
+.nav-container a {
+  display: block;
+  background-color: #202020;
+  color: lime;
+  font-size: 20px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.nav-container .selected {
+  background-color: #306090;
+  color: white;
+}
+
+.nav-container a:hover {
+  text-shadow: 0 0 10px aqua;
+}
+
+.nav-container a:active {
+  background-color: #A05020;
+  text-shadow: none;
+  box-shadow: 4px 4px 4px #20202080;
+}
+
+/* Page */
+
+.page-container {
+  flex: 3;
+}
+
+/* Article */
+
+.article-container {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(33, 39, 51);
+}
+
+article {
+  flex: 1;
+  padding: 20px 30px 20px;
+  background-color: rgb(28, 34, 46);
+  font-family: Arial;
+  line-height: 1.5;
+  color: lightgray;
+  max-width: 900px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: aquamarine;
+}
+
+h2 {
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 2rem;
+  color: orange;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 1px;
+  border: 3px solid orange;
+}
+
+th,
+td {
+  padding: 4px;
+  border: 2px solid cadetblue;
+}
+
+.feature-supported {
+  text-align: center;
+  color: lime;
+}
+
+.feature-partially-supported {
+  text-align: center;
+  color: yellow;
+}
+
+.feature-unsupported {
+  text-align: center;
+  color: red;
+}
+
+.bullet {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.outer-list > li {
+  margin-bottom: 1em;
+}
+
+.outer-list li:last-child {
+  margin-bottom: 0.5em;
+}
+
+.gallery {
+  --hmargin: 0px;
+  margin-left: var(--hmargin);
+  margin-right: var(--hmargin);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  list-style-type: none;
+}
+
+.gallery img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.expanded-image-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background-color: black;
+}
+
+.expanded-image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Courier New";
+  font-size: 4rem;
+  color: white;
+  cursor: pointer;
+}
+
+.gallery-arrow:hover {
+  color: lime;
+}
+
+.gallery-arrow:active {
+  color: orange;
+}
+
+.gallery-map-info {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-family: "Arial";
+  font-size: 2rem;
+  text-align: center;
+  color: cyan;
+  text-shadow: 0 0 5px black, 0 0 5px black, 0 0 5px black, 0 0 5px black, 0 0 5px black, 0 0 5px black;
+}
+
+.contrast-shadow {
+  text-shadow: 0 0 15px black, 0 0 15px black, 0 0 15px black, 0 0 15px black, 0 0 15px black, 0 0 15px black;
+}
+
+.map-info-fadeout {
+  transition-delay: 1s;
+  transition-duration: 1s;
+  opacity: 0;
+}
+
+.map-info-fadeout:hover {
+  transition: none;
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.ini-code-container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+.ini-code {
+  margin-top: 1em;
+  margin-left: 2em;
+  font-family: "Courier New";
+  line-height: 1.2;
+  background-color: black;
+  color: beige;
+}
+
+.entity {
+  font-style: italic;
+  color: mediumaquamarine;
+}
+
+dl {
+  margin-left: 2em;
+}
+
+dt {
+  margin-top: 1em;
+  color: darkgoldenrod;
+}
+
+dd {
+  margin-top: 0.5em;
+}
+
+.value-type {
+  font-style: italic;
+  color: darkturquoise;
+}
+
+.default-value {
+  font-style: italic;
+  color: lightsteelblue;
+}
+
+footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #303030;
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .nav-container {
+    display: none;
+  }
+}
