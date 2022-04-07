@@ -34,7 +34,7 @@
 
         <h3>Introduction</h3>
 
-        <p>Botpack227 is a bundle of game packages that allows playing a limited subset of Unreal Tournament maps on Unreal 227 and resolves varios issues with the maps and the packages they use.</p>
+        <p>Botpack227 is a bundle of game packages that allows playing a limited subset of Unreal Tournament maps on Unreal 227 and resolves various related issues.</p>
 
         <h3>Supported mapsets</h3>
 
@@ -64,7 +64,7 @@
               <tr>
                 <td>Nali Chronicles</td>
                 <td>NCTeam</td>
-                <td class="feature-supported">&#x2713;</td>
+                <td class="feature-partially-supported">partially</td>
                 <td class="feature-unsupported">&#x2717;</td>
               </tr>
               <tr>
@@ -197,6 +197,25 @@
           </div>
         </div>
 
+        <p>If you don't have Unreal Tournament installed, it's possible to extract the contents of archive <span class="entity">UT files for SP.7z</span> to some directory and use it as <span class="entity">UT_GAME_DIR</span> instead.</p>
+
+        <p>If you prefer to use textures <span class="entity">DecayedS.utx</span> and <span class="entity">SkyBox.utx</span> from UT (which may look better than the original Unreal textures), it is recommended to copy these textures to <span class="entity">B227_MODS_DIR</span> and move the line</p>
+
+        <div class="ini-code-container">
+          <div class="ini-code">
+            Paths=<span class="entity">B227_MODS_DIR</span>\Textures\*.utx<br>
+          </div>
+        </div>
+
+        <p>before the path to the original Unreal textures:</p>
+
+        <div class="ini-code-container">
+          <div class="ini-code">
+            Paths=D:\Games\Unreal227\UT_Mods\Textures\*.utx<br>
+            Paths=..\Textures\*.utx
+          </div>
+        </div>
+
         <h3>Installing all supported campaigns and single maps at once</h3>
 
         <p>Installation of all the converted files can be done by taking the following steps:</p>
@@ -232,7 +251,7 @@
           <li>If you want to see the mapsets in the list of single-player campaigns in the game menu, then copy all files from directory <span class="entity">SP menu support\System</span> to <span class="entity">U227_GAME_DIR\System</span> (e.g., <span class="entity">D:\Games\Unreal227\System</span> - see above).</li>
         </ul>
 
-        <p>It is also recommended to install and use mutator <span class="entity">B227_MapFix</span> when playing UT maps on Unreal 227i. <span class="entity">B227_MapFix.ini</span> should be placed in <span class="entity">U227_GAME_DIR\System</span>. In a Coop game, this mutator automatically adds ONPCoopMutator, SevenBCoopMutator, or XidiaCoopMutator for relevant campaigns.</p>
+        <p>It is also recommended to install and use mutator <span class="entity">B227_MapFix</span> when playing UT maps on Unreal 227i. <span class="entity">B227_MapFix.ini</span> should be placed in <span class="entity">U227_GAME_DIR\System</span>. In a Coop game, this mutator automatically adds ONPCoopMutator, SevenBCoopMutator, or XidiaCoopMutator for relevant campaigns. However, note that these mutators are supposed to be used only with generic Coop game classes (such as UnrealShare.CoopGame) and may not work well with game classes designed for specific UT campaigns (e.g., olextras.tvcoop).</p>
 
         <p>In case if you want to install only a particular UT campaign, then follow the steps described below.</p>
 
@@ -667,7 +686,7 @@
       </article>
     </div>
     <footer>
-      Last documentation update: 2022-04-01
+      Last documentation update: 2022-04-05
     </footer>
   </div>
 </body>
