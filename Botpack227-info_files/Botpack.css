@@ -82,10 +82,15 @@ body.bright-theme .nav-link-container a {
   text-shadow: 0 0 10px aqua;
 }
 
-.nav-link-container a:active {
+.nav-link-container a:active,
+body.bright-theme .nav-link-container a:active {
   background-color: #A05020;
   text-shadow: none;
   box-shadow: 4px 4px 4px #20202080;
+}
+
+body.bright-theme .nav-link-container a:active {
+  background-color: #C07040;
 }
 
 .theme-selection {
