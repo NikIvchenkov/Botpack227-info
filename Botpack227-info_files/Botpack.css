@@ -78,6 +78,10 @@ body.bright-theme .nav-link-container a {
   color: white;
 }
 
+body.bright-theme .nav-link-container .selected {
+  background-color: #306090;
+}
+
 .nav-link-container a:hover {
   text-shadow: 0 0 10px aqua;
 }
