@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="Botpack227-info_files/Images/Unreal.ico">
   <link rel="stylesheet" href="Botpack227-info_files/Botpack.css">
   <script defer src="Botpack227-info_files/Botpack.js"></script>
   <title>Botpack227</title>
@@ -12,14 +13,25 @@
 <body class="main-container">
 
   <div class="nav-bar">
-    <div></div> <!-- TODO: add language selection -->
-    <nav class="nav-container">
-      <div><a href="#ref-overview">Overview</a></div>
-      <div><a href="#ref-installation">Installation</a></div>
-      <div><a href="#ref-configuration">Configuration</a></div>
-      <div><a href="#ref-mapping-and-scripting">Mapping &amp; scripting</a></div>
-      <div><a href="#ref-gallery">Gallery</a></div>
-    </nav>
+    <div></div> <!-- dummy flex item -->
+    <div class="nav-container">
+      <nav class="nav-link-container">
+        <div><a href="#ref-overview">Overview</a></div>
+        <div><a href="#ref-installation">Installation</a></div>
+        <div><a href="#ref-configuration">Configuration</a></div>
+        <div><a href="#ref-mapping-and-scripting">Mapping &amp; scripting</a></div>
+        <div><a href="#ref-gallery">Gallery</a></div>
+      </nav>
+    </div>
+    <div class="theme-selection">
+      <div>
+        <label>Theme</label>
+        <select id="theme-selection">
+          <option value="dark">Dark</option>
+          <option value="bright">Bright</option>
+        </select>
+      </div>
+    </div>
   </div>
 
   <div class="page-container">

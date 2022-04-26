@@ -2,6 +2,7 @@
 
 updateCurrentNavPosition();
 addEventListener("scroll", updateCurrentNavPosition);
+document.getElementById("theme-selection").addEventListener("change", updateTheme);
 initGalleryRegions();
 
 function updateCurrentNavPosition() {
@@ -228,5 +229,13 @@ function createExpandedImageView(event) {
         document.removeEventListener("keydown", handleKeyDown);
         document.removeEventListener("mousemove", handleMouseMove);
         allowScroll();
+    }
+}
+
+function updateTheme() {
+    if (document.getElementById("theme-selection").value == "bright") {
+        document.body.classList.add("bright-theme");
+    } else {
+        document.body.classList.remove("bright-theme");
     }
 }

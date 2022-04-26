@@ -18,35 +18,47 @@ body {
   top: 0;
   height: 100vh;
   background-color: #003030;
-  display: grid;
-  grid-template-rows: 0 1fr;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   border-right: 2px solid darkslategray;
 }
 
-.nav-column {
-  box-sizing: border-box;
-  flex: 0 225px;
+body.bright-theme .nav-bar {
+  background-color: #7CC;
+}
+
+.nav-bar > * {
+  flex: 1;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
 }
 
 nav {
   box-sizing: border-box;
   width: 100%;
   padding: 10px;
-  border: 1px solid;
+  border: 1px solid black;
   margin: 0;
   background-color: #004040;
 }
 
-.nav-container {
+body.bright-theme nav {
+  border: none;
+  background-color: inherit;
+}
+
+.nav-link-container {
   min-width: 225px;
 }
 
-.nav-container > div {
+.nav-link-container > div {
   margin: 10px 0;
 }
 
-.nav-container a {
+.nav-link-container a {
   display: block;
   background-color: #202020;
   color: lime;
@@ -57,19 +69,58 @@ nav {
   text-decoration: none;
 }
 
-.nav-container .selected {
+body.bright-theme .nav-link-container a {
+  background-color: #303030;
+}
+
+.nav-link-container .selected {
   background-color: #306090;
   color: white;
 }
 
-.nav-container a:hover {
+.nav-link-container a:hover {
   text-shadow: 0 0 10px aqua;
 }
 
-.nav-container a:active {
+.nav-link-container a:active {
   background-color: #A05020;
   text-shadow: none;
   box-shadow: 4px 4px 4px #20202080;
+}
+
+.theme-selection {
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  color: aquamarine;
+}
+
+body.bright-theme .theme-selection {
+  color: black;
+}
+
+.theme-selection > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#theme-selection {
+  border-radius: 5px;
+  min-width: 80px;
+}
+
+#theme-selection,
+#theme-selection option[value="dark"] {
+  background-color: #202020;
+  color: #00C0FF;
+}
+
+body.bright-theme #theme-selection,
+#theme-selection option[value="bright"] {
+  background-color: white;
+  color: black;
 }
 
 /* Page */
@@ -86,6 +137,10 @@ nav {
   background-color: rgb(33, 39, 51);
 }
 
+body.bright-theme .article-container {
+  background-color: #BDD;
+}
+
 article {
   flex: 1;
   padding: 20px 30px 20px;
@@ -96,10 +151,19 @@ article {
   max-width: 900px;
 }
 
+body.bright-theme article {
+  background-color: #EEE;
+  color: black;
+}
+
 h1 {
   text-align: center;
   font-size: 2.5rem;
   color: aquamarine;
+}
+
+body.bright-theme h1 {
+  color: steelblue;
 }
 
 h2 {
@@ -107,6 +171,10 @@ h2 {
   text-align: center;
   font-size: 2rem;
   color: orange;
+}
+
+body.bright-theme h2 {
+  color: darkorange;
 }
 
 h3 {
@@ -125,6 +193,10 @@ table {
   border: 3px solid orange;
 }
 
+body.bright-theme table {
+  border-color: darkorange;
+}
+
 th,
 td {
   padding: 4px;
@@ -136,9 +208,17 @@ td {
   color: lime;
 }
 
+body.bright-theme .feature-supported {
+  color: #0C0;
+}
+
 .feature-partially-supported {
   text-align: center;
   color: yellow;
+}
+
+body.bright-theme .feature-partially-supported {
+  color: darkorange;
 }
 
 .feature-unsupported {
@@ -269,6 +349,10 @@ td {
   color: mediumaquamarine;
 }
 
+body.bright-theme .entity {
+  color: teal;
+}
+
 dl {
   margin-left: 2em;
 }
@@ -287,9 +371,17 @@ dd {
   color: darkturquoise;
 }
 
+body.bright-theme .value-type {
+  color: #0AA;
+}
+
 .default-value {
   font-style: italic;
   color: lightsteelblue;
+}
+
+body.bright-theme .default-value {
+  color: gray;
 }
 
 footer {
@@ -301,7 +393,7 @@ footer {
 }
 
 @media (max-width: 960px) {
-  .nav-container {
+  .nav-bar {
     display: none;
   }
 }
