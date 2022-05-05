@@ -429,6 +429,18 @@
 
         <h2 class="nav-target" id="ref-configuration">Configuration</h2>
 
+        <h3>Reducing the amount of possible issues</h3>
+
+        <p>It is highly recommended to disable 227's “enhanced sight check” for NPCs, because it may produce unintended behavior of AI. This can be done by executing console command</p>
+
+        <div class="ini-code-container">
+          <div class="ini-code">
+            set GameInfo bAlwaysEnhancedSightCheck false
+          </div>
+        </div>
+
+        <p>In a multiplayer game, it is recommended to use the UGoldFix mutator, which additionally resolves issues with movers, projectiles, and others.</p>
+
         <h3>Speech menu</h3>
 
         <p>The speech menu can be bound to a &lt;Key&gt; by means of console command</p>
@@ -551,6 +563,14 @@
         <dl>
           <dt>B227_bVerticalCrosshairScaling <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
           <dd>- if true, the crosshair is scaled by screen height instead of screen width.</dd>
+        </dl>
+
+        <p>UTC_Weapon:</p>
+        <dl>
+          <dt>B227_ViewOffsetMode <span class="value-type">(int)</span> <span class="default-value">default: 1</span></dt>
+          <dd>- if 0, position of weapons in the first person view does not depend on FOV.</dd>
+          <dd>- if 1, position of weapons in the first person view may be closer to the owner when vertical FOV is higher than 73.74°.</dd>
+          <dd>- if 2, position of weapons in the first person view depends on horizontal FOV in the same way as in UT 436.</dd>
         </dl>
 
         <p>UTSmokeTrail:</p>
