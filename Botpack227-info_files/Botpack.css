@@ -54,12 +54,9 @@ body.bright-theme nav {
   min-width: 225px;
 }
 
-.nav-link-container > div {
-  margin: 10px 0;
-}
-
 .nav-link-container a {
   display: block;
+  margin: 10px 0;
   background-color: #202020;
   color: lime;
   font-size: 20px;

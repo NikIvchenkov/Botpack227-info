@@ -16,11 +16,11 @@
     <div></div> <!-- dummy flex item -->
     <div class="nav-container">
       <nav class="nav-link-container">
-        <div><a href="#ref-overview">Overview</a></div>
-        <div><a href="#ref-installation">Installation</a></div>
-        <div><a href="#ref-configuration">Configuration</a></div>
-        <div><a href="#ref-mapping-and-scripting">Mapping &amp; scripting</a></div>
-        <div><a href="#ref-gallery">Gallery</a></div>
+        <a href="#ref-overview">Overview</a>
+        <a href="#ref-installation">Installation</a>
+        <a href="#ref-configuration">Configuration</a>
+        <a href="#ref-mapping-and-scripting">Mapping &amp; scripting</a>
+        <a href="#ref-gallery">Gallery</a>
       </nav>
     </div>
     <div class="theme-selection">
@@ -509,18 +509,26 @@
         <dl>
           <dt>B227_bVerticalScaling <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
           <dd>- if true, HUD elements are scaled by screen height instead of screen width.</dd>
+          <dt>B227_UpscaleHUD <span class="value-type">(float)</span> <span class="default-value">default: 1.0</span></dt>
+          <dd>- if the value is greater than 1, HUD is rendered at a lower resolution (the initial resolution is reduced by factor B227_UpscaleHUD) and stretched to full screen.</dd>
         </dl>
 
         <p>DeathMatchPlus:</p>
         <dl>
           <dt>B227_bFixedBotCount <span class="value-type">(bool)</span> <span class="default-value">default: false</span></dt>
-          <dd>- if true, the number of bots of in a network game will not be auto-adjusted in relation to the number of real players.</dd>
+          <dd>- if true, the number of bots in a network game will not be auto-adjusted in relation to the number of real players.</dd>
         </dl>
 
         <p>DMMutator:</p>
         <dl>
           <dt>B227_bAutoActivatePickups <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
           <dd>- if true, bAutoActivate is set to true for Pickup actors (except for scuba gear).</dd>
+        </dl>
+
+        <p>FontInfo:</p>
+        <dl>
+          <dt>B227_bUseTahomaFonts <span class="value-type">(bool)</span> <span class="default-value">default: false</span></dt>
+          <dd>- if true, Tahoma fonts from UWindowFonts.utx are used instead of UTLadder fonts from LadderFonts.utx.</dd>
         </dl>
 
         <p>PulseGun:</p>
@@ -599,6 +607,8 @@
         <dl>
           <dt>B227_bVerticalScaling <span class="value-type">(bool)</span> <span class="default-value">default: false</span></dt>
           <dd>- if true, HUD elements are scaled by screen height instead of screen width.</dd>
+          <dt>B227_UpscaleHUD <span class="value-type">(float)</span> <span class="default-value">default: 1.0</span></dt>
+          <dd>- if the value is greater than 1, HUD is rendered at a lower resolution (the initial resolution is reduced by factor B227_UpscaleHUD) and stretched to full screen.</dd>
         </dl>
 
         <h3>SevenB config options (Seven Bullets)</h3>
@@ -616,6 +626,8 @@
         <dl>
           <dt>B227_bVerticalScaling <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
           <dd>- if true, HUD elements are scaled by screen height instead of screen width.</dd>
+          <dt>B227_UpscaleHUD <span class="value-type">(float)</span> <span class="default-value">default: 1.0</span></dt>
+          <dd>- if the value is greater than 1, HUD is rendered at a lower resolution (the initial resolution is reduced by factor B227_UpscaleHUD) and stretched to full screen.</dd>
         </dl>
 
         <h3>XidiaMPack config options (Xidia Gold)</h3>
@@ -624,6 +636,8 @@
         <dl>
           <dt>B227_bVerticalScaling <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
           <dd>- if true, HUD elements are scaled by screen height instead of screen width.</dd>
+          <dt>B227_UpscaleHUD <span class="value-type">(float)</span> <span class="default-value">default: 1.0</span></dt>
+          <dd>- if the value is greater than 1, HUD is rendered at a lower resolution (the initial resolution is reduced by factor B227_UpscaleHUD) and stretched to full screen.</dd>
         </dl>
 
         <h2 class="nav-target" id="ref-mapping-and-scripting">Mapping &amp; scripting</h2>
@@ -772,7 +786,7 @@
       </article>
     </div>
     <footer>
-      Last documentation update: 2022-06-21
+      Last documentation update: 2022-06-23
     </footer>
   </div>
 </body>
