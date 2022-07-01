@@ -48,6 +48,8 @@
 
         <p>Botpack227 is a bundle of game packages that allows playing a limited subset of Unreal Tournament maps on Unreal 227 and resolves various related issues.</p>
 
+        <p>Supported game versions: 227i, 227j.</p>
+
         <h3>Supported mapsets</h3>
 
         <div class="table-container">
@@ -227,6 +229,9 @@
             Paths=..\Textures\*.utx
           </div>
         </div>
+
+        <p><span class="important-note">NOTE:</span> if your game is patched to version 227j, make sure that it will not use the texture file LadderFonts.utx (file size 2781435 bytes) installed by the patch installer. The client cannot properly render some fonts from this package.
+        </p>
 
         <h3>Installing all supported campaigns and single maps at once</h3>
 
@@ -786,7 +791,7 @@
       </article>
     </div>
     <footer>
-      Last documentation update: 2022-06-28
+      Last documentation update: 2022-06-29
     </footer>
   </div>
 </body>

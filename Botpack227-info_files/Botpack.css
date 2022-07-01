@@ -389,6 +389,10 @@ body.bright-theme .default-value {
   color: gray;
 }
 
+.important-note {
+  color: red;
+}
+
 footer {
   padding-top: 10px;
   padding-bottom: 10px;
