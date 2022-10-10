@@ -233,6 +233,8 @@
         <p><span class="important-note">NOTE:</span> if your game is patched to version 227j, make sure that it will not use the texture file LadderFonts.utx (file size 2781435 bytes) installed by the patch installer. The client cannot properly render some fonts from this package.
         </p>
 
+        <p>To make UT game classes and player classes configurable via Unreal Gold menu, you should copy modified Botpack.int and multimesh.int and the original localization files for player skins (BossSkins.int, CommandoSkins.int, FCommandoSkins.int, SGirlSkins.int, SoldierSkins.int, tcowmeshskins.int, tnalimeshskins.int, tskmskins.int) to the System directory of Unreal or make sure that the game may use them in other way.</p>
+
         <h3>Installing all supported campaigns and single maps at once</h3>
 
         <p>Installation of all the converted files can be done by taking the following steps:</p>
@@ -498,6 +500,8 @@
         <dl>
           <dt>bEnableExtensions <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
           <dd>- this option can be used to disable most of the modifications described below.</dd>
+          <dt>bEnableExtras <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- enables usage of package Botpack227_Extras.u.</dd>
           <dt>bFixLoaded <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
           <dd>- if true, the <span class="entity">Loaded</span> cheat command gives Armor2 and ThighPads to the player as if the player would touch spawned armors; if false, the existing armors in the player's inventory list are ignored when executing this command, so the player takes +150 armor units on every use of <span class="entity">Loaded</span>.</dd>
           <dt>bModifyProjectilesLighting <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
@@ -536,6 +540,12 @@
           <dd>- if true, Tahoma fonts from UWindowFonts.utx are used instead of UTLadder fonts from LadderFonts.utx.</dd>
         </dl>
 
+        <p>Minigun2:</p>
+        <dl>
+          <dt>B227_bAdjustMuzzleFlashOffset <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- modifies position of Minigun2's muzzle flashes rendered in the first person view.</dd>
+        </dl>
+
         <p>PulseGun:</p>
         <dl>
           <dt>B227_bAdjustNPCAccuracy <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
@@ -560,6 +570,12 @@
         <dl>
           <dt>B227_bModifyLighting <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
           <dd>- adds lighting to ShockRifle beam.</dd>
+        </dl>
+
+        <p>TournamentGameInfo:</p>
+        <dl>
+          <dt>B227_bAllowUnrealIPlayers <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- if true and usage of Botpack227_Extras.u is allowed (see bEnableExtras in B227_Config), TournamentGameInfo replaces Unreal player classes with their counterparts defined in Botpack227_Extras.u, so players may use player models from Unreal in a Tournament game. This setting may differ between derived game classes.</dd>
         </dl>
 
         <p>TournamentPlayer:</p>
@@ -592,6 +608,10 @@
 
         <p>UTC_Weapon:</p>
         <dl>
+          <dt>B227_bEnableMuzzleFlash <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- defines whether muzzle flashes may be rendered in the first person view.</dd>
+          <dt>B227_MuzzleFlashScale <span class="value-type">(float)</span> <span class="default-value">default: 1.0</span></dt>
+          <dd>- defines draw scale of muzzle flashes rendered in the first person view. Weapon classes derived from UTC_Weapon or TournamentWeapon have different instances of B227_MuzzleFlashScale (that is, each class has its own configurable value of B227_MuzzleFlashScale).</dd>
           <dt>B227_ViewOffsetMode <span class="value-type">(int)</span> <span class="default-value">default: 1</span></dt>
           <dd>- if 0, position of weapons in the first person view does not depend on FOV.</dd>
           <dd>- if 1, position of weapons in the first person view may be closer to the owner when vertical FOV is higher than 73.74°.</dd>
@@ -791,7 +811,7 @@
       </article>
     </div>
     <footer>
-      Last documentation update: 2022-06-29
+      Last documentation update: 2022-07-08
     </footer>
   </div>
 </body>
