@@ -508,12 +508,6 @@
           <dd>- this option can be used to disable modifications on projectile's lighting.</dd>
         </dl>
 
-        <p>B227_UTSmokeTrailEmitter:</p>
-        <dl>
-          <dt>bAutoReduceSmokeOpacity <span class="value-type">(bool)</span> <span class="default-value">default: false</span></dt>
-          <dd>- if true, opacity of rocket trail's smoke particles (created by B227_UTSmokeTrailEmitter) is reduced when the smoke emitter has other smoke emitters nearby.</dd>
-        </dl>
-
         <p>Bot:</p>
         <dl>
           <dt>B227_DodgeEndTime <span class="value-type">(float)</span> <span class="default-value">default: 0.35</span></dt>
@@ -538,6 +532,10 @@
         <dl>
           <dt>B227_bAutoActivatePickups <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
           <dd>- if true, bAutoActivate is set to true for Pickup actors (except for scuba gear).</dd>
+          <dt>B227_bFlakShellAmmo <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- if true, UnrealI.FlakShellAmmo is replaced with a single core for UT_FlakCannon.</dd>
+          <dt>B227_bLogNonUTInventory <span class="value-type">(bool)</span> <span class="default-value">default: true</span></dt>
+          <dd>- if true, the mutator will log actors whose classes are derived from Pickup or Weapon and not derived TournamentWeapon, TournamentPickup, TournamentAmmo, and TournamentHealth.</dd>
         </dl>
 
         <p>FontInfo:</p>
@@ -817,7 +815,7 @@
       </article>
     </div>
     <footer>
-      Last documentation update: 2022-10-10
+      Last documentation update: 2023-01-22
     </footer>
   </div>
 </body>
